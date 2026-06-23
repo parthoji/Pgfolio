@@ -285,3 +285,60 @@ html, body {
         flex-direction: column;
     }
 }
+
+
+
+/* --- RESPONSIVE LAYOUT ENGINE (OVERHAULED) --- */
+
+/* Tablet & Mobile Breakpoint */
+@media(max-width: 1024px) {
+    /* Ensure containers don't overflow */
+    .container { padding: 0 20px !important; }
+
+    /* About Bento-Grid: Switch to single column */
+    .about-bento-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+    .about-bento-grid > div {
+        grid-column: span 1 !important;
+        min-height: auto !important;
+        padding: 25px !important;
+    }
+
+    /* Projects: Fix horizontal scrolling issues on touch */
+    .horizontal-scroll-container { 
+        width: 100% !important; 
+        flex-direction: column;
+    }
+    .horizontal-slide { 
+        width: 100% !important; 
+        height: auto !important; 
+        padding: 40px 20px !important; 
+    }
+    .project-card { 
+        grid-template-columns: 1fr !important; 
+        max-width: 100% !important; 
+    }
+
+    /* Remove horizontal-scroll-pin behavior on touch screens */
+    .projects-horizontal-section { height: auto !important; }
+}
+
+@media(max-width: 768px) {
+    /* Font scaling for smaller screens */
+    .section-title { font-size: 2rem !important; }
+    .hero-title { font-size: 3rem !important; }
+    
+    /* Center text and buttons */
+    .hero-content { text-align: center; }
+    .hero-buttons { justify-content: center; }
+    
+    /* Timeline: Fix alignment */
+    .timeline-item { padding-left: 30px !important; }
+    .timeline-line { left: 0px !important; }
+    
+    /* Services grid stack */
+    .services-grid { grid-template-columns: 1fr !important; }
+}
