@@ -267,4 +267,14 @@ function initMagneticMechanics() {
             });
         });
     }
+
+
+    // Update initComponentTilts in script.js
+function initComponentTilts() {
+    // Only initialize on desktop, disable on touch devices/tablets
+    if(window.innerWidth > 1024 && !('ontouchstart' in window)) {
+        const cards = document.querySelectorAll('.service-card, .info-card, .skill-pill-card');
+        VanillaTilt.init(Array.from(cards), { max: 10, speed: 500, glare: false });
+    }
+}
 }
