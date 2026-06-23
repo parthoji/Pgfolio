@@ -278,3 +278,31 @@ function initComponentTilts() {
     }
 }
 }
+
+/* Updated logic for Tablets/Mobile */
+function initComponentTilts() {
+    // Only run if the screen is large (Desktop)
+    if(window.innerWidth > 1024) {
+        const cards = document.querySelectorAll('.service-card, .info-card, .skill-pill-card');
+        VanillaTilt.init(Array.from(cards), { max: 10, speed: 500, glare: false });
+    }
+}
+
+function initMagneticMechanics() {
+    // Disable magnetic effect on tablets/mobile to ensure touch links work
+    if(window.innerWidth > 1024) {
+        document.querySelectorAll('.magnetic').forEach(item => {
+            item.addEventListener('mousemove', function(e) {
+                const bound = this.getBoundingClientRect();
+                const x = e.clientX - bound.left - bound.width / 2;
+                const y = e.clientY - bound.top - bound.height / 2;
+                gsap.to(this, { x: x * 0.3, y: y * 0.3, duration: 0.3, ease: "power2.out" });
+            });
+            item.addEventListener('mouseleave', function() {
+                gsap.to(this, { x: 0, y: 0, duration: 0.4, ease: "elastic.out(1, 0.4)" });
+            });
+        });
+    }
+}
+
+
