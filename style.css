@@ -342,3 +342,55 @@ html, body {
     /* Services grid stack */
     .services-grid { grid-template-columns: 1fr !important; }
 }
+
+
+/* --- RESPONSIVE LAYOUT ENGINE: FULLY OPTIMIZED --- */
+
+@media(max-width: 1024px) {
+    /* 1. Reset Cursor for Touch Devices */
+    * { cursor: auto !important; }
+    .custom-cursor, .custom-cursor-dot { display: none !important; }
+
+    /* 2. Fix Bento Grid for Tablet/Mobile */
+    .about-bento-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Forces single column */
+        gap: 16px !important;
+    }
+    .about-bento-grid > div {
+        grid-column: span 1 !important;
+        min-height: auto !important;
+    }
+
+    /* 3. Center Headlines and Text */
+    .section-title, .hero-title, .hero-content {
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+    
+    /* 4. Center Buttons */
+    .hero-buttons {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+
+    /* 5. Footer Centering */
+    .footer-bottom {
+        flex-direction: column !important;
+        text-align: center;
+        gap: 20px;
+    }
+
+    /* 6. Layout padding */
+    .container { padding: 0 20px !important; }
+}
+
+@media(max-width: 768px) {
+    /* Tighten spacing for phones */
+    .section-padding { padding: 60px 0 !important; }
+    .hero-title { font-size: 2.5rem !important; }
+    .services-grid { grid-template-columns: 1fr !important; }
+}
+
+
